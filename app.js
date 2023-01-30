@@ -4,8 +4,6 @@ let error = "";
 
 document.getElementById("conversion").addEventListener("submit", (event) => {
     event.preventDefault();
-
-
     
 
     const conversionTable =[
@@ -20,15 +18,6 @@ document.getElementById("conversion").addEventListener("submit", (event) => {
     let inputFrom = document.getElementById('unitFrom');
     let inputTo = document.getElementById('unitTo');
 
-    
-
-    console.log("quantity : " + quantity.value);
-    console.log("inputFrom : " + inputFrom.value);
-    console.log("inputTo : " + inputTo.value);
-
-
-    
-
     if ((!quantity.value) || Number.isInteger(parseInt(quantity.value)) == false ) {
         
         error = "You must enter a numerical value !";
@@ -39,15 +28,21 @@ document.getElementById("conversion").addEventListener("submit", (event) => {
 
     if(inputFrom.value == 'lb' && inputTo.value == 'g') quantity.value = quantity.value * conversionTable[0][2];
     if(inputFrom.value == 'lb' && inputTo.value == 'kg') quantity.value = quantity.value * conversionTable[1][2];
+    if(inputFrom.value == 'lb' && inputTo.value == 'metric ton') quantity.value = quantity.value * conversionTable[0][2] * (1/conversionTable[3][2]);
+
     if(inputFrom.value == 'kg' && inputTo.value == 'lb') quantity.value = quantity.value * conversionTable[2][2];
     if(inputFrom.value == 'kg' && inputTo.value == 'metric ton') quantity.value = quantity.value * conversionTable[3][2];
+    if(inputFrom.value == 'kg' && inputTo.value == 'g') quantity.value = quantity.value * conversionTable[3][2];
+
+    if(inputFrom.value == 'g' && inputTo.value == 'kg') quantity.value = quantity.value * (1/conversionTable[0][2]) * conversionTable[1][2];
+    if(inputFrom.value == 'g' && inputTo.value == 'lb') quantity.value = quantity.value * (1/conversionTable[0][2]);
+    if(inputFrom.value == 'g' && inputTo.value == 'metric ton') quantity.value = quantity.value * (1/conversionTable[0][2]) * conversionTable[1][2] * conversionTable[3][2];
+
+    if(inputFrom.value == 'metric ton' && inputTo.value == 'kg') quantity.value = (quantity.value * (1/conversionTable[3][2]));
+    if(inputFrom.value == 'metric ton' && inputTo.value == 'lb') quantity.value = (quantity.value * (1/conversionTable[3][2])) * conversionTable[2][2];
+    if(inputFrom.value == 'metric ton' && inputTo.value == 'g') quantity.value = (quantity.value * (1/conversionTable[3][2])) * conversionTable[2][2] * conversionTable[0][2] ;
     
 
-    console.log("quantity after loop : " + quantity.value);
-
-    
-
-    
 })
 
 
