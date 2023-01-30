@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>Unit Conversion App</title>
+</head>
+<body>
+    
+    <form id = "conversion">
+
+
+        Unit from :
+
+        <select id = "unitFrom">
+            <option value="kg">kg</option>
+            <option value="lb">lb</option>
+            <option value="g">g</option>
+            <option value="metric ton">metric ton</option>
+            
+        </select>
+
+        Unit to :
+
+        <select id = "unitTo">
+            <option value="kg">kg</option>
+            <option value="lb">lb</option>
+            <option value="g">g</option>
+            <option value="metric ton">metric ton</option>
+            
+        </select>
+        
+
+        <label for="quantity">Quantity:</label>
+        <input type="text" id="quantity">
+
+
+        <button name = "convert" type="submit" value="converted" id = "convert"> convert </button>
+
+        
+
+        <script src = "app.js"></script>
+
+      </form> 
+
+    <br>
+
+    <span style="color: red; " id="error"></span>
+
+</body>
+</html>
