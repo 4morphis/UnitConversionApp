@@ -18,9 +18,9 @@ document.getElementById("conversion").addEventListener("submit", (event) => {
     let inputFrom = document.getElementById('unitFrom');
     let inputTo = document.getElementById('unitTo');
 
-    if ((!quantity.value) || Number.isInteger(parseInt(quantity.value)) == false ) {
+    if ((!quantity.value) || Number.isInteger(parseInt(quantity.value)) == false || (quantity.value < 0) ) {
         
-        error = "You must enter a numerical value !";
+        error = "You must enter a postive numerical value !";
         return document.getElementById("error").innerHTML = error;
     }
 
@@ -28,7 +28,7 @@ document.getElementById("conversion").addEventListener("submit", (event) => {
 
     if(inputFrom.value == 'lb' && inputTo.value == 'g') quantity.value = quantity.value * conversionTable[0][2];
     if(inputFrom.value == 'lb' && inputTo.value == 'kg') quantity.value = quantity.value * conversionTable[1][2];
-    if(inputFrom.value == 'lb' && inputTo.value == 'metric ton') quantity.value = quantity.value * conversionTable[0][2] * (1/conversionTable[3][2]);
+    if(inputFrom.value == 'lb' && inputTo.value == 'metric ton') quantity.value = quantity.value * conversionTable[1][2] * (conversionTable[3][2]);
 
     if(inputFrom.value == 'kg' && inputTo.value == 'lb') quantity.value = quantity.value * conversionTable[2][2];
     if(inputFrom.value == 'kg' && inputTo.value == 'metric ton') quantity.value = quantity.value * conversionTable[3][2];
