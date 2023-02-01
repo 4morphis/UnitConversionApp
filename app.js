@@ -32,7 +32,7 @@ document.getElementById("conversion").addEventListener("submit", (event) => {
 
     if(inputFrom.value == 'kg' && inputTo.value == 'lb') quantity.value = quantity.value * conversionTable[2][2];
     if(inputFrom.value == 'kg' && inputTo.value == 'metric ton') quantity.value = quantity.value * conversionTable[3][2];
-    if(inputFrom.value == 'kg' && inputTo.value == 'g') quantity.value = quantity.value * conversionTable[3][2];
+    if(inputFrom.value == 'kg' && inputTo.value == 'g') quantity.value = quantity.value * (1/conversionTable[3][2]);
 
     if(inputFrom.value == 'g' && inputTo.value == 'kg') quantity.value = quantity.value * (1/conversionTable[0][2]) * conversionTable[1][2];
     if(inputFrom.value == 'g' && inputTo.value == 'lb') quantity.value = quantity.value * (1/conversionTable[0][2]);
